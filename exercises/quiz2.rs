@@ -40,11 +40,7 @@ mod my_module {
                 Command::Uppercase => string.to_uppercase(),
                 Command::Trim => string.trim().to_owned(),
                 Command::Append(times) => {
-                    let mut change = string.to_owned();
-                    for _ in 0..*times {
-                        change.push_str("bar");
-                    }
-                    change
+                    string.to_owned() + &"bar".repeat(*times)
                 }
             };
             output.push(after);
